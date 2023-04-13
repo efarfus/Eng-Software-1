@@ -1,0 +1,27 @@
+@startuml restaurante
+/'Casos de usos do sistema restaurante'/
+left to right direction
+actor Cliente as c
+package Profissional {
+  actor garçom as g
+  actor cozinheiro as h
+  actor caixa as j
+  actor atendente as k
+  actor "Supervisor de Alimentos" as sa
+  actor Chefe as ch
+  
+}
+package Restaurante {
+  usecase "Comer alimento" as UC1
+  usecase "Pagar" as UC2
+  usecase "Beber" as UC3
+  usecase "Analisar alimento" as UC4
+  (UC1) .> (UC2) : include
+  (UC3) .> (UC2) : <<extends>>
+}
+sa -- UC4
+c -- UC1
+c -- UC2
+c -- UC3
+sa <|-- ch
+@enduml
