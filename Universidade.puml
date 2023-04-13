@@ -1,0 +1,26 @@
+@startuml universidade
+/'Casos de usos do sistema de uma universidade'/
+left to right direction
+actor Estudante as c
+package Profissional {
+  actor professor as g
+  actor reitor as h
+  actor segurança as j
+  actor secretários as k
+  actor bibliotecário as l
+  
+}
+package Universidade {
+  usecase "Estudar" as UC1
+  usecase "Pagar" as UC2
+  usecase "Comer" as UC3
+  usecase "Dar aula" as UC4
+  (UC1) .> (UC2) : include
+  (UC3) .> (UC2) : include
+}
+Professor --|> UC4
+c -- UC1
+c -- UC2
+c -- UC3 
+Professor <|-- Estudante
+@enduml
