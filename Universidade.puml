@@ -1,26 +1,57 @@
 @startuml universidade
 /'Casos de usos do sistema de uma universidade'/
 left to right direction
-actor Estudante as c
+
 package Profissional {
-  actor professor as g
+  actor Estudante as c
+  actor Professor as g
+  actor cordenador as ç
   actor reitor as h
-  actor segurança as j
-  actor secretários as k
-  actor bibliotecário as l
+  actor funcionario as j
+  actor faxineiro as k
+  actor vigilante as l
+  actor financeiro as p
   
 }
-package Universidade {
-  usecase "Estudar" as UC1
-  usecase "Pagar" as UC2
-  usecase "Comer" as UC3
-  usecase "Dar aula" as UC4
-  (UC1) .> (UC2) : include
-  (UC3) .> (UC2) : include
-}
-Professor --|> UC4
-c -- UC1
-c -- UC2
-c -- UC3 
-Professor <|-- Estudante
+
+usecase "Ministrar aula" as UC1
+usecase "Assistir aula" as UC2
+usecase "Orientar matrícula" as UC3
+usecase "Administrar curso" as UC4
+usecase "Administrar universidade" as UC5
+usecase "Representar universidade" as UC6
+usecase "Prestar serviço" as UC7
+usecase "Atender a universidade" as UC8
+usecase "Gerenciar receitas e despesas" as UC9
+usecase "Pagar" as UC10
+usecase "Receber" as UC11
+usecase "Cuidar da universidade" as UC12
+
+
+(UC2) .> (UC1) : include
+
+Professor -- UC1
+Professor -- UC11
+cordenador -- UC3
+cordenador -- UC4
+cordenador --|> professor
+reitor --|> professor
+reitor -- UC5
+reitor -- UC6
+
+Estudante --|> UC2 
+Estudante --|> UC10
+funcionario -- UC10
+funcionario -- UC7
+funcionario -- UC11
+vigilante -- UC12
+vigilante --|> funcionario
+faxineiro --|> funcionario
+financeiro --|> funcionario
+UC9 -- financeiro
+UC8 --|> UC6
+UC8  --|> UC7
+UC10 -- UC11
+UC10 --|> UC9
+
 @enduml
