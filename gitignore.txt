@@ -1,0 +1,3 @@
+meignore.txt
+t/
+lixo/
