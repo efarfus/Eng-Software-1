@@ -1,4 +1,4 @@
-# Título do projeto
+# ENGENHARIA DE SOFTWARE 1
 
 Projeto de ENGENHARIA DE SOFTWARE 1 da UNOCHAPECÓ feito por Eduardo Farfus
 
@@ -16,9 +16,9 @@ Apenas baixar os arquivos no GIT
 
 ## 🛠️ Construído com
 
-PUML 
-MD
-VSCODE
+PUML -
+MD -
+VSCODE -
 GIT
 
 ## ✒️ Autores
