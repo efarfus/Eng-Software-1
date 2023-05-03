@@ -1,0 +1,36 @@
+@startuml banco
+/'Casos de usos do sistema restaurante'/
+left to right direction
+actor Cliente as c
+package Profissional {
+  actor funcionário as f
+  actor Segurança as s
+  actor Atendente as a
+  actor Gerente as g
+  actor Faxineiro as fx
+  actor Caixa as cx
+  actor rh as rh
+  
+}
+package CAIXA_ELETRONICO {
+  usecase "Sacar" as UC1
+  usecase "Pagar" as UC2
+  usecase "Depositar" as UC3
+  usecase "Prestar serviço" as UC4
+
+}
+c --> UC1
+c --> UC2
+c --> UC3
+s --> Banco
+g --> Banco
+g -- UC2
+a -- UC2
+f -- s
+f -- a
+f -- g
+f -- fx
+f -- rh
+f -- cx
+f <-- UC4
+@endum
