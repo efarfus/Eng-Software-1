@@ -1,0 +1,63 @@
+@startuml Delicias_Gourmet
+left to right direction
+actor Cliente as c
+
+rectangle Fábrica{
+    actor Gerente as g
+    actor Fornecedores as f
+    actor "Supervisor de estoque" as a
+    actor "Coordenador de produção" as cp
+    actor "Linha de produção" as l
+    actor "Analista de qualidade" as aq
+    actor Comercial as com
+}
+
+
+
+usecase "Adquirir os alimentos e materiais necessários" as UC1
+usecase "Negociar" as UC2
+usecase "Gerenciar o armazenamento dos materiais" as UC3
+usecase "Conferir se está tudo em conformidade" as UC4
+usecase "Coordenar a utilização dos ingredientes e materiais" as UC5
+usecase "Entregar no momento certo e na quantidade adequada" as UC6
+usecase "Planejar e otimizar linhas de produção" as UC7
+usecase "Monitorar o processo de produção e verificar padrões exigidos" as UC8
+usecase "Garantir normas de segurança" as UC9
+usecase "Vender e distribuir os produtos" as UC10
+usecase "Coordenar entrega de produtos, registrar vendas realizadas" as UC11
+usecase "Receber comissões" as UC12
+usecase "Cumprir cotas" as UC13
+usecase "Pagar" as UC14
+usecase "Receber" as UC15
+
+
+g -- UC1
+g -- UC2
+UC2 -- f
+
+a -- UC3
+a -- UC4
+UC3 -- g
+
+cp -- UC5 
+cp -- UC6
+UC6 -- a
+cp -- UC7
+UC7 -- l
+
+aq -- UC8
+aq -- UC9
+
+com -- UC10
+com -- UC11
+com -- UC12
+(UC12) .> (UC10) : include
+com -- UC13
+
+
+UC10 -- c
+c -- UC14
+UC14 --> UC15
+UC15 -- com
+
+@enduml
