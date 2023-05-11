@@ -16,10 +16,10 @@ Apenas baixar os arquivos no GIT
 
 ## 🛠️ Construído com
 
-PUML -
-MD -
-VSCODE -
-GIT
+PUML 
+</br> MD 
+</br> VSCODE 
+</br> GIT
 
 ## ✒️ Autores
 
