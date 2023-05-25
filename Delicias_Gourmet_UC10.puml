@@ -1,0 +1,40 @@
+@startuml Delias_Gourmet_UC10
+
+start
+
+:Responsável pelas Vendas e Distribuição coordena a venda dos produtos;
+:Responsável pelas Vendas e Distribuição mantém registros das vendas realizadas;
+:Responsável pelas Vendas e Distribuição organiza a logística de distribuição;
+
+fork
+  :Responsável pelas Vendas e Distribuição recebe pedido do cliente;
+  fork again
+    :Responsável pelas Vendas e Distribuição verifica disponibilidade de estoque;
+  end fork
+
+:Responsável pelas Vendas e Distribuição confirma o pedido;
+
+if (Estoque disponível?) then (sim)
+  :Responsável pelas Vendas e Distribuição emite fatura para o cliente;
+  :Responsável pelas Vendas e Distribuição aguarda o pagamento;
+
+  if (Pagamento recebido?) then (sim)
+    :Responsável pelas Vendas e Distribuição prepara a remessa do pedido;
+    :Responsável pelas Vendas e Distribuição organiza a entrega ao cliente;
+    :Responsável pelas Vendas e Distribuição atualiza registros de vendas;
+    :Responsável pelas Vendas e Distribuição finaliza o processo de venda;
+  else (não)
+    :Responsável pelas Vendas e Distribuição cancela o pedido;
+    :Responsável pelas Vendas e Distribuição atualiza registros de vendas;
+    :Responsável pelas Vendas e Distribuição finaliza o processo de venda;
+  endif
+else (não)
+  :Responsável pelas Vendas e Distribuição informa ao cliente sobre a falta de estoque;
+  :Responsável pelas Vendas e Distribuição cancela o pedido;
+  :Responsável pelas Vendas e Distribuição atualiza registros de vendas;
+  :Responsável pelas Vendas e Distribuição finaliza o processo de venda;
+endif
+
+stop
+
+@enduml

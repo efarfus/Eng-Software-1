@@ -1,0 +1,45 @@
+@startuml Delicias_Gourmet_UC1
+
+start
+
+:Gerente de Compras verifica lista de ingredientes e materiais necessários;
+:Gerente de Compras entra em contato com os fornecedores;
+:Gerente de Compras inicia negociação de preços e prazos de entrega;
+
+fork
+  :Gerente de Compras realiza pesquisa de mercado;
+  :Gerente de Compras verifica disponibilidade de fornecedores;
+  fork again
+    :Gerente de Compras negocia preços com fornecedor 1;
+  fork again
+    :Gerente de Compras negocia preços com fornecedor 2;
+  fork again
+    :Gerente de Compras negocia preços com fornecedor 3;
+  end fork
+
+:Gerente de Compras seleciona fornecedor com melhor proposta;
+:Gerente de Compras realiza pedido ao fornecedor selecionado;
+:Gerente de Compras aguarda confirmação de pedido e prazo de entrega;
+
+if (Confirmação recebida?) then (sim)
+  :Gerente de Compras agenda entrega dos alimentos e materiais;
+  if (Entrega no prazo?) then (sim)
+    :Gerente de Compras finaliza processo de aquisição;
+  else (não)
+    :Gerente de Compras contata fornecedor para resolver atraso na entrega;
+    if (Atraso resolvido?) then (sim)
+      :Gerente de Compras agenda nova data de entrega;
+      :Gerente de Compras finaliza processo de aquisição;
+    else (não)
+      :Gerente de Compras seleciona novo fornecedor com melhor proposta;
+      :Retornar para "Gerente de Compras realiza pedido ao fornecedor selecionado";
+    endif
+  endif
+else (não)
+  :Gerente de Compras seleciona novo fornecedor com melhor proposta;
+  :Retornar para "Gerente de Compras realiza pedido ao fornecedor selecionado";
+endif
+
+stop
+
+@enduml
