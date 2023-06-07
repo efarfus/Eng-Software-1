@@ -1,0 +1,56 @@
+@startuml ModeloDeDominio
+
+class GerenteCompras {
+  - RealizarCompras()
+  - SelecionarFornec()
+  --
+  nome: string
+  departamento: string
+  email: string
+}
+
+class SupervisorEstoque {
+  - GerenciarEstoque()
+  - VerificarProdutos()
+  --
+  nome: string
+  departamento: string
+  telefone: string
+}
+
+class CoordenadorProducao {
+  - CoordenarProducao()
+  - PlanejarUtilizacao()
+  --
+  nome: string
+  departamento: string
+  localizacao: string
+}
+
+class AnalistaQualidade {
+  - MonitorarProcesso()
+  - ConduzirInspecoes()
+  --
+  nome: string
+  departamento: string
+  certificacoes: string[]
+}
+
+class ResponsavelVendas {
+  - CoordenarEntrega()
+  - RegistrarVendas()
+  --
+  nome: string
+  departamento: string
+  equipe: string[]
+}
+
+GerenteCompras --> SupervisorEstoque
+SupervisorEstoque --> GerenteCompras
+SupervisorEstoque --> CoordenadorProducao
+CoordenadorProducao --> SupervisorEstoque
+CoordenadorProducao --> AnalistaQualidade
+AnalistaQualidade --> CoordenadorProducao
+ResponsavelVendas --> CoordenadorProducao
+
+@enduml
